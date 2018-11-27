@@ -1,0 +1,53 @@
+API doc：
+SlideDrawerLayout是一个自定义View，它的自定义属性包括：
+shadowColor：当drawer弹出来时，底层阴影的颜色，取值是颜色类型，例如#ff3344,或者是一个指向color的资源id，例如: R.color.colorAccent.
+edgeDirection: 是要从左边滑出来，还是从右边画出来，有"left"和"right"可选
+drawerPercent：弹出的Drawer的宽度占主页面布局的百分比，百分数类型，只能以%结尾，例如30%
+
+注意: 在xml中，<com.example.slidedrawer.SlideDrawerLayout> 标签下
+必须有主页面的布局，和Drawer页面的布局，主页面布局在前，Drawer页面布局在后。
+
+示例：
+<布局>
+<?xml version="1.0" encoding="utf-8"?>
+<com.example.slidedrawer.SlideDrawerLayout 
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:shadowColor="@color/grey"  // 1.引用你的颜色属性
+    app:edgeDirection="left"       // 2.布局靠右滑动还是靠左
+    app:drawerPercent="70%">       // 3.侧滑面板大小       
+	
+    <!-- 主页面 -->
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/white">
+            
+			// todo 此处绘制你的主页面内容
+			
+	</RelativeLayout>
+
+    <!-- drawer页面 -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorAccent">
+        
+		// todo 此处绘制你的侧滑页面内容
+		
+	</RelativeLayout>
+		
+</com.example.slidedrawer.SlideDrawerLayout>
+
+<Method>
+openDrawer(): 打开menu
+closeDrawer(): 关闭menu
+
+
+
+
+
+
